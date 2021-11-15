@@ -1,4 +1,4 @@
-<mxfile host="app.diagrams.net" modified="2021-11-15T13:45:39.312Z" agent="5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/95.0.4638.69 Safari/537.36" etag="obOe1mEbmcZaZ8gv3g5A" version="15.7.3" type="github">
+<mxfile host="app.diagrams.net" modified="2021-11-15T13:49:56.891Z" agent="5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/95.0.4638.69 Safari/537.36" etag="0yyLbItZF13kcbcVrXB5" version="15.7.3" type="github">
   <diagram name="Page-1" id="edf60f1a-56cd-e834-aa8a-f176f3a09ee4">
     <mxGraphModel dx="1882" dy="507" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1100" pageHeight="850" background="none" math="0" shadow="0">
       <root>
@@ -92,13 +92,13 @@
         <mxCell id="eft8qApNP8DuhR5Chvi9-17" value="Заказ шоколада" style="swimlane;fontStyle=0;childLayout=stackLayout;horizontal=1;startSize=30;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;labelBackgroundColor=none;strokeColor=#666666;fillColor=#f5f5f5;fontColor=#333333;" vertex="1" parent="eft8qApNP8DuhR5Chvi9-59">
           <mxGeometry width="120" height="130" as="geometry" />
         </mxCell>
-        <mxCell id="eft8qApNP8DuhR5Chvi9-18" value="id состава заказа" style="text;strokeColor=default;fillColor=none;align=left;verticalAlign=middle;spacingLeft=4;spacingRight=4;overflow=hidden;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;rotatable=0;labelBackgroundColor=none;" vertex="1" parent="eft8qApNP8DuhR5Chvi9-17">
+        <mxCell id="eft8qApNP8DuhR5Chvi9-18" value="id заказа" style="text;strokeColor=default;fillColor=none;align=left;verticalAlign=middle;spacingLeft=4;spacingRight=4;overflow=hidden;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;rotatable=0;labelBackgroundColor=none;" vertex="1" parent="eft8qApNP8DuhR5Chvi9-17">
           <mxGeometry y="30" width="120" height="30" as="geometry" />
         </mxCell>
         <mxCell id="eft8qApNP8DuhR5Chvi9-19" value="id пользователя,&#xa;сделавшего заказ" style="text;strokeColor=default;fillColor=none;align=left;verticalAlign=middle;spacingLeft=4;spacingRight=4;overflow=hidden;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;rotatable=0;labelBackgroundColor=none;" vertex="1" parent="eft8qApNP8DuhR5Chvi9-17">
           <mxGeometry y="60" width="120" height="40" as="geometry" />
         </mxCell>
-        <mxCell id="eft8qApNP8DuhR5Chvi9-20" value="id корзины " style="text;strokeColor=default;fillColor=none;align=left;verticalAlign=middle;spacingLeft=4;spacingRight=4;overflow=hidden;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;rotatable=0;labelBackgroundColor=none;" vertex="1" parent="eft8qApNP8DuhR5Chvi9-17">
+        <mxCell id="eft8qApNP8DuhR5Chvi9-20" value="id состава заказа " style="text;strokeColor=default;fillColor=none;align=left;verticalAlign=middle;spacingLeft=4;spacingRight=4;overflow=hidden;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;rotatable=0;labelBackgroundColor=none;" vertex="1" parent="eft8qApNP8DuhR5Chvi9-17">
           <mxGeometry y="100" width="120" height="30" as="geometry" />
         </mxCell>
         <mxCell id="eft8qApNP8DuhR5Chvi9-22" value="Адрес заказа" style="text;strokeColor=default;fillColor=none;align=left;verticalAlign=middle;spacingLeft=4;spacingRight=4;overflow=hidden;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;rotatable=0;labelBackgroundColor=none;" vertex="1" parent="eft8qApNP8DuhR5Chvi9-59">
@@ -110,7 +110,7 @@
         <mxCell id="eft8qApNP8DuhR5Chvi9-62" style="edgeStyle=orthogonalEdgeStyle;rounded=0;sketch=0;jumpStyle=line;jumpSize=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;shadow=0;startArrow=ERmandOne;startFill=0;endArrow=ERmandOne;endFill=0;startSize=15;endSize=15;targetPerimeterSpacing=0;exitX=1;exitY=0.5;exitDx=0;exitDy=0;" edge="1" parent="1" source="eft8qApNP8DuhR5Chvi9-58" target="eft8qApNP8DuhR5Chvi9-20">
           <mxGeometry relative="1" as="geometry" />
         </mxCell>
-        <mxCell id="eft8qApNP8DuhR5Chvi9-63" style="edgeStyle=orthogonalEdgeStyle;rounded=0;sketch=0;jumpStyle=line;jumpSize=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;shadow=0;startArrow=ERmandOne;startFill=0;endArrow=ERzeroToMany;endFill=0;startSize=15;endSize=15;targetPerimeterSpacing=0;" edge="1" parent="1" source="eft8qApNP8DuhR5Chvi9-3" target="eft8qApNP8DuhR5Chvi9-52">
+        <mxCell id="eft8qApNP8DuhR5Chvi9-63" style="edgeStyle=orthogonalEdgeStyle;rounded=0;sketch=0;jumpStyle=line;jumpSize=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;shadow=0;startArrow=ERmany;startFill=0;endArrow=ERzeroToOne;endFill=0;startSize=15;endSize=15;targetPerimeterSpacing=0;" edge="1" parent="1" source="eft8qApNP8DuhR5Chvi9-3" target="eft8qApNP8DuhR5Chvi9-52">
           <mxGeometry relative="1" as="geometry" />
         </mxCell>
         <mxCell id="eft8qApNP8DuhR5Chvi9-72" value="Является вкусом" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;labelBackgroundColor=none;rotation=-90;" vertex="1" parent="1">
