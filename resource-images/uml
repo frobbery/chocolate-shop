@@ -1,6 +1,6 @@
-<mxfile host="app.diagrams.net" modified="2021-12-07T11:25:43.700Z" agent="5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/96.0.4664.45 Safari/537.36" etag="CobylTtqe56iZp-N4kPQ" version="15.9.1" type="github">
+<mxfile host="app.diagrams.net" modified="2021-12-07T12:17:40.273Z" agent="5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/96.0.4664.45 Safari/537.36" etag="M_kHiUPabyHsiNYE1IL9" version="15.9.1" type="github">
   <diagram name="Page-1" id="b5b7bab2-c9e2-2cf4-8b2a-24fd1a2a6d21">
-    <mxGraphModel dx="3061" dy="1286" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" background="none" math="0" shadow="0">
+    <mxGraphModel dx="1944" dy="643" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" background="none" math="0" shadow="0">
       <root>
         <mxCell id="0" />
         <mxCell id="1" parent="0" />
@@ -354,6 +354,54 @@
               <mxPoint x="130" y="1300" />
             </Array>
           </mxGeometry>
+        </mxCell>
+        <mxCell id="5jBn0mDWu82_iuteU36--101" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;fontSize=17;" edge="1" parent="1" source="5jBn0mDWu82_iuteU36--99" target="5jBn0mDWu82_iuteU36--100">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="5jBn0mDWu82_iuteU36--99" value="" style="ellipse;whiteSpace=wrap;html=1;aspect=fixed;labelBackgroundColor=default;sketch=0;fontSize=17;fillColor=#000000;" vertex="1" parent="1">
+          <mxGeometry x="-10" y="1430" width="80" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="5jBn0mDWu82_iuteU36--105" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.407;entryY=0.028;entryDx=0;entryDy=0;entryPerimeter=0;fontSize=17;exitX=0;exitY=0.5;exitDx=0;exitDy=0;" edge="1" parent="1" source="5jBn0mDWu82_iuteU36--100" target="5jBn0mDWu82_iuteU36--104">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="5jBn0mDWu82_iuteU36--100" value="Личный кабинет повара" style="rounded=1;whiteSpace=wrap;html=1;labelBackgroundColor=default;sketch=0;fontSize=17;fillColor=#FFFFFF;" vertex="1" parent="1">
+          <mxGeometry x="-30" y="1590" width="120" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="5jBn0mDWu82_iuteU36--102" value="Личный кабинет повара/getChefWindow" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=17;sketch=0;labelBackgroundColor=default;" vertex="1" parent="1">
+          <mxGeometry x="-105" y="1530" width="270" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="5jBn0mDWu82_iuteU36--110" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.5;entryY=1;entryDx=0;entryDy=0;fontSize=17;exitX=0.5;exitY=1;exitDx=0;exitDy=0;" edge="1" parent="1" source="5jBn0mDWu82_iuteU36--103" target="5jBn0mDWu82_iuteU36--104">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="5jBn0mDWu82_iuteU36--112" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=1;entryY=0.5;entryDx=0;entryDy=0;fontSize=17;exitX=0.5;exitY=0;exitDx=0;exitDy=0;" edge="1" parent="1" source="5jBn0mDWu82_iuteU36--103" target="5jBn0mDWu82_iuteU36--100">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="5jBn0mDWu82_iuteU36--103" value="" style="rhombus;whiteSpace=wrap;html=1;labelBackgroundColor=default;sketch=0;fontSize=17;fillColor=#FFFFFF;" vertex="1" parent="1">
+          <mxGeometry x="110" y="1703.5" width="80" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="5jBn0mDWu82_iuteU36--107" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;fontSize=17;startArrow=none;" edge="1" parent="1" source="5jBn0mDWu82_iuteU36--108" target="5jBn0mDWu82_iuteU36--103">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="5jBn0mDWu82_iuteU36--104" value="Обновить вкус" style="rounded=1;whiteSpace=wrap;html=1;labelBackgroundColor=default;sketch=0;fontSize=17;fillColor=#FFFFFF;" vertex="1" parent="1">
+          <mxGeometry x="-210" y="1713.5" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="5jBn0mDWu82_iuteU36--106" value="Обновление вкуса/&lt;span style=&quot;text-align: left&quot;&gt;getTasteUpdateWindow&lt;/span&gt;" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;labelBackgroundColor=#FFFFFF;sketch=0;fontSize=17;" vertex="1" parent="1">
+          <mxGeometry x="-195" y="1650" width="90" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="5jBn0mDWu82_iuteU36--108" value="Ок" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;labelBackgroundColor=default;sketch=0;fontSize=17;" vertex="1" parent="1">
+          <mxGeometry x="-55" y="1728.5" width="60" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="5jBn0mDWu82_iuteU36--109" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;fontSize=17;endArrow=none;" edge="1" parent="1" source="5jBn0mDWu82_iuteU36--104" target="5jBn0mDWu82_iuteU36--108">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="-90" y="1733.5" as="sourcePoint" />
+            <mxPoint x="40" y="1733.5" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="5jBn0mDWu82_iuteU36--111" value="[Иначе]/&lt;span style=&quot;text-align: left&quot;&gt;getTasteUpdateWindow&lt;/span&gt;" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;labelBackgroundColor=#FFFFFF;sketch=0;fontSize=17;" vertex="1" parent="1">
+          <mxGeometry x="-50" y="1780" width="90" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="5jBn0mDWu82_iuteU36--113" value="Вкус удален из таблицы готовки и его количество на складе обновлено/getChefWindow" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=17;sketch=0;labelBackgroundColor=default;" vertex="1" parent="1">
+          <mxGeometry x="120" y="1650" width="270" height="30" as="geometry" />
         </mxCell>
       </root>
     </mxGraphModel>
