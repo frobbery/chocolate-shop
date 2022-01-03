@@ -1,0 +1,48 @@
+package com.frobbery.chocolateshop.entities;
+
+import javax.persistence.*;
+
+@Entity
+public class Cooking {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
+
+    public Cooking() {
+    }
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    @ManyToOne
+    private Chocolate chocolate;
+
+    private Integer quantity;
+
+    public Chocolate getChocolate() {
+        return chocolate;
+    }
+
+    public void setChocolate(Chocolate chocolate) {
+        this.chocolate = chocolate;
+    }
+
+    public Integer getQuantity() {
+        return quantity;
+    }
+
+    public void setQuantity(Integer quantity) {
+        this.quantity = quantity;
+    }
+
+    public Cooking(Long id, Chocolate chocolate, Integer quantity) {
+        this.id = id;
+        this.chocolate = chocolate;
+        this.quantity = quantity;
+    }
+}
