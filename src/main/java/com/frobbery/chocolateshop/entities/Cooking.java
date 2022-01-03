@@ -5,7 +5,7 @@ import javax.persistence.*;
 @Entity
 public class Cooking {
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
 
     public Cooking() {
@@ -41,7 +41,6 @@ public class Cooking {
     }
 
     public Cooking(Long id, Chocolate chocolate, Integer quantity) {
-        this.id = id;
         this.chocolate = chocolate;
         this.quantity = quantity;
     }

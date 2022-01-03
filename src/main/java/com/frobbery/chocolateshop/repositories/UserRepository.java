@@ -1,11 +1,20 @@
 package com.frobbery.chocolateshop.repositories;
 
+import com.frobbery.chocolateshop.entities.Basket;
 import com.frobbery.chocolateshop.entities.Order;
 import com.frobbery.chocolateshop.entities.User;
 import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.stereotype.Repository;
 
+import java.util.Optional;
+
+@Repository
 public interface UserRepository extends JpaRepository<User, Long> {
-    String addressOfOrder(Order order);
+    Optional<User> findByEmailOrPhoneNumber(String email, Long phoneNumber);
 
-    String phoneNumberOfOrder(Order order);
+    Optional<User> findByPhoneNumber(Long phoneNumber);
+
+    User getUserByEmail(String email);
+
+    User getUserByBasket(Basket basket);
 }

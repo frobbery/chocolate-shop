@@ -5,8 +5,11 @@ import javax.persistence.*;
 @Entity
 public class Chocolate {
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
+
+    public Chocolate() {
+    }
 
     public Long getId() {
         return id;
@@ -16,7 +19,28 @@ public class Chocolate {
         this.id = id;
     }
 
-    public String name;
+    private String name;
 
-    public Integer quantity;
+    private Integer quantity;
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public Integer getQuantity() {
+        return quantity;
+    }
+
+    public void setQuantity(Integer quantity) {
+        this.quantity = quantity;
+    }
+
+    public Chocolate(String name, Integer quantity) {
+        this.name = name;
+        this.quantity = quantity;
+    }
 }

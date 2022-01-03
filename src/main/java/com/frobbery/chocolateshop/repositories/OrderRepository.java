@@ -3,15 +3,17 @@ package com.frobbery.chocolateshop.repositories;
 import com.frobbery.chocolateshop.entities.Order;
 import com.frobbery.chocolateshop.entities.User;
 import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.stereotype.Repository;
 
 import java.util.List;
 
+@Repository
 public interface OrderRepository extends JpaRepository<Order, Long> {
-    List<Order> getRegisteredOrders();
+    List<Order> getOrderByStatus_Registered();
 
-    List<Order> getPaidOrders();
+    List<Order> getOrderByStatus_Paid();
 
-    List<Order> getGatheredOrders();
+    List<Order> getOrderByStatus_Gathered();
 
-    List<Order> getOrdersOfUser(User user);
+    List<Order> getOrderByUser(User user);
 }

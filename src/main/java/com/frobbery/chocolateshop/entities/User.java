@@ -5,7 +5,7 @@ import javax.persistence.*;
 @Entity
 public class User {
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
 
     public User() {
@@ -60,12 +60,10 @@ public class User {
         this.basket = basket;
     }
 
-    public User(Long id, String email, String password, Long phoneNumber, Basket basket) {
-        this.id = id;
+    public User(String email, String password, Long phoneNumber) {
         this.email = email;
         this.password = password;
         this.phoneNumber = phoneNumber;
-        this.basket = basket;
     }
 
     private boolean hasRole(String roleName) {

@@ -5,7 +5,7 @@ import javax.persistence.*;
 @Entity
 public class Order {
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
 
     public Order() {
@@ -61,11 +61,10 @@ public class Order {
         this.address = address;
     }
 
-    public Order(Long id, User user, Basket basket, Status status, String address) {
-        this.id = id;
+    public Order(User user, String address) {
         this.user = user;
-        this.basket = basket;
-        this.status = status;
+        this.basket = user.getBasket();
+        this.status = Status.REGISTERED;
         this.address = address;
     }
 }
