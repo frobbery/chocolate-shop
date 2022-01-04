@@ -21,15 +21,15 @@ public class UserService {
         this.orderService = orderService;
         if (userRepository.findAll().isEmpty()) {
             userRepository.save(new User("ADMIN", "ADMIN", 1L));
-            userRepository.save(new User("CHEF", "CHEF", 1L));
-            userRepository.save(new User("WORKER", "WORKER", 1L));
+            userRepository.save(new User("CHEF", "CHEF", 2L));
+            userRepository.save(new User("WORKER", "WORKER", 3L));
         }
     }
 
     public String register(String email, String password, Long phoneNumber) {
         Optional<User> user = userRepository.findByEmailOrPhoneNumber(email, phoneNumber);
         if (user.isPresent()) {
-            return "Пользователь с таким email или/и номером телефона уже зарегистрирован";
+            return "User with the same email or/and phone number is already registered";
         }
         else {
             userRepository.save(new User(email, password, phoneNumber));
@@ -40,12 +40,12 @@ public class UserService {
     public String authorize(Long phoneNumber, String password) {
         Optional<User> userWithPhoneNumber = userRepository.findByPhoneNumber(phoneNumber);
         if (userWithPhoneNumber.isEmpty()) {
-            return "Пользователя с таким номером телефона не существует";
+            return "There is no user with this phone number";
         }
         else {
             User user = userWithPhoneNumber.get();
             if (!user.getPassword().equals(password)) {
-                return "Введен неверный пароль";
+                return "Incorrect password";
             }
             else {
                 if (user.isAdmin()) {

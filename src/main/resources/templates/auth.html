@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="https://www.thymeleaf.org"
+      lang="java">
+<head>
+    <title>Authorization</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <style>
+        body {
+            font-family: Helvetica, Tahoma, Arial, sans-serif;
+            font-size: 100%;
+            margin: 1em;
+        }
+        img {
+            max-width: 100%;
+        }
+    </style>
+</head>
+<body>
+<h1>Authorization</h1>
+<p th:if="${message!=null}" class="error" th:text="${message}"></p>
+<form action="/authorize" method="post">
+    <label for="phoneNumber"> Phone number:  </label>
+    <input type="tel" id="phoneNumber" name="phoneNumber">
+    <br>
+    <label for="password">Password:</label>
+    <input type="password" id="password" name="password">
+    <br>
+    <button type="submit">Login</button>
+</form>
+<form action="/register" method="get">
+    New?
+    <button type="submit">Sign up</button>
+</form>
+</body>
+</html>
