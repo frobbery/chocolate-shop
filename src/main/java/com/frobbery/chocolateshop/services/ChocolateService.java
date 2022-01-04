@@ -2,7 +2,6 @@ package com.frobbery.chocolateshop.services;
 
 import com.frobbery.chocolateshop.entities.Chocolate;
 import com.frobbery.chocolateshop.repositories.ChocolateRepository;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
@@ -12,8 +11,7 @@ import java.util.Map;
 
 @Service
 public class ChocolateService {
-    @Autowired
-    private ChocolateRepository chocolateRepository;
+    private final ChocolateRepository chocolateRepository;
 
     public ChocolateService(ChocolateRepository chocolateRepository) {
         this.chocolateRepository = chocolateRepository;
@@ -32,16 +30,16 @@ public class ChocolateService {
     public Chocolate[] getBoxTest(boolean result) {
         Chocolate[] box = new Chocolate[4];
         if (result) {
-            box[0] = chocolateRepository.getChocolateByName("Молочный");
-            box[1] = chocolateRepository.getChocolateByName("Горький с миндалем и малиной");
-            box[2] = chocolateRepository.getChocolateByName("Молочный с фундуком и изюмом");
-            box[3] = chocolateRepository.getChocolateByName("Темный с ананасом");
+            box[0] = chocolateRepository.findByName("Молочный");
+            box[1] = chocolateRepository.findByName("Горький с миндалем и малиной");
+            box[2] = chocolateRepository.findByName("Молочный с фундуком и изюмом");
+            box[3] = chocolateRepository.findByName("Темный с ананасом");
         }
         else {
-            box[0] = chocolateRepository.getChocolateByName("Белый с кокосовой стружкой");
-            box[1] = chocolateRepository.getChocolateByName("Белый с земляникой");
-            box[2] = chocolateRepository.getChocolateByName("Горький с кофе");
-            box[3] = chocolateRepository.getChocolateByName("Молочный с вафлей");
+            box[0] = chocolateRepository.findByName("Белый с кокосовой стружкой");
+            box[1] = chocolateRepository.findByName("Белый с земляникой");
+            box[2] = chocolateRepository.findByName("Горький с кофе");
+            box[3] = chocolateRepository.findByName("Молочный с вафлей");
         }
         return box;
     }
@@ -53,7 +51,7 @@ public class ChocolateService {
         else {
             List<Chocolate> chocolates = new ArrayList<>();
             for (String name : chocolatesNames) {
-                chocolates.add(chocolateRepository.getChocolateByName(name));
+                chocolates.add(chocolateRepository.findByName(name));
             }
             return chocolates;
         }
@@ -70,11 +68,39 @@ public class ChocolateService {
     }
 
     public Map<String,Integer> getAvailableChocolate() {
-        List<Chocolate> availableChocolates = chocolateRepository.getChocolateByQuantityIsNotNull();
+        List<Chocolate> availableChocolates = chocolateRepository.getByQuantityIsNotNull();
         Map<String,Integer> chocolates = new HashMap<>();
         for (Chocolate chocolate : availableChocolates) {
             chocolates.put(chocolate.getName(), chocolate.getQuantity());
         }
         return chocolates;
+    }
+
+    public List<String> getAllChocolatesNames() {
+        List<Chocolate> chocolates = chocolateRepository.findAll();
+        List<String> chocolatesNames = new ArrayList<>();
+        for (Chocolate chocolate : chocolates) {
+            chocolatesNames.add(chocolate.getName());
+        }
+        return chocolatesNames;
+    }
+
+    public String getIntoBox(List<String> chocolatesNames) {
+        if (chocolatesNames.size() != 4) {
+            return "Выберите четыре вкуса";
+        }
+        else {
+            for (String chocolateName : chocolatesNames) {
+                Chocolate chocolate = chocolateRepository.findByName(chocolateName);
+                if (chocolate.getQuantity() < 1) {
+                    return "На складе недостаточно выбранного вкуса";
+                }
+            }
+            for (String chocolateName : chocolatesNames) {
+                Chocolate chocolate = chocolateRepository.findByName(chocolateName);
+                chocolate.setQuantity(chocolate.getQuantity() - 1);
+            }
+            return null;
+        }
     }
 }

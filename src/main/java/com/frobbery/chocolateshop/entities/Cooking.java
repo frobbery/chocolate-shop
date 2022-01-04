@@ -36,11 +36,7 @@ public class Cooking {
         return quantity;
     }
 
-    public void setQuantity(Integer quantity) {
-        this.quantity = quantity;
-    }
-
-    public Cooking(Long id, Chocolate chocolate, Integer quantity) {
+    public Cooking(Chocolate chocolate, Integer quantity) {
         this.chocolate = chocolate;
         this.quantity = quantity;
     }

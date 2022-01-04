@@ -8,7 +8,7 @@ import java.util.List;
 
 @Repository
 public interface ChocolateRepository extends JpaRepository<Chocolate, Long> {
-    Chocolate getChocolateByName(String name);
+    Chocolate findByName(String name);
 
-    List<Chocolate> getChocolateByQuantityIsNotNull();
+    List<Chocolate> getByQuantityIsNotNull();
 }

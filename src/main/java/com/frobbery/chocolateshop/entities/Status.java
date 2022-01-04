@@ -6,7 +6,7 @@ public enum Status {
     GATHERED("Собран"),
     SENT("Отправлен");
 
-    private String title;
+    private final String title;
 
     Status(String title) {
         this.title = title;

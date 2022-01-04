@@ -3,7 +3,6 @@ package com.frobbery.chocolateshop.services;
 import com.frobbery.chocolateshop.entities.Basket;
 import com.frobbery.chocolateshop.entities.Chocolate;
 import com.frobbery.chocolateshop.repositories.BasketRepository;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
@@ -11,11 +10,11 @@ import java.util.List;
 
 @Service
 public class BasketService {
-    @Autowired
-    private BasketRepository basketRepository;
-    private ChocolateService chocolateService;
+    private final BasketRepository basketRepository;
+    private  final ChocolateService chocolateService;
 
-    public BasketService(ChocolateService chocolateService) {
+    public BasketService(BasketRepository basketRepository, ChocolateService chocolateService) {
+        this.basketRepository = basketRepository;
         this.chocolateService = chocolateService;
     }
 

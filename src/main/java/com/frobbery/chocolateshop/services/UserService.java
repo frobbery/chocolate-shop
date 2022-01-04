@@ -3,7 +3,6 @@ package com.frobbery.chocolateshop.services;
 import com.frobbery.chocolateshop.entities.Basket;
 import com.frobbery.chocolateshop.entities.User;
 import com.frobbery.chocolateshop.repositories.UserRepository;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
@@ -12,10 +11,9 @@ import java.util.Optional;
 
 @Service
 public class UserService {
-    @Autowired
-    private UserRepository userRepository;
-    private BasketService basketService;
-    private OrderService orderService;
+    private final UserRepository userRepository;
+    private final BasketService basketService;
+    private final OrderService orderService;
 
     public UserService(UserRepository userRepository, BasketService basketService, OrderService orderService) {
         this.userRepository = userRepository;
@@ -28,7 +26,7 @@ public class UserService {
         }
     }
 
-    private String register(String email, String password, Long phoneNumber) {
+    public String register(String email, String password, Long phoneNumber) {
         Optional<User> user = userRepository.findByEmailOrPhoneNumber(email, phoneNumber);
         if (user.isPresent()) {
             return "Пользователь с таким email или/и номером телефона уже зарегистрирован";

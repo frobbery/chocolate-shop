@@ -27,10 +27,6 @@ public class Chocolate {
         return name;
     }
 
-    public void setName(String name) {
-        this.name = name;
-    }
-
     public Integer getQuantity() {
         return quantity;
     }

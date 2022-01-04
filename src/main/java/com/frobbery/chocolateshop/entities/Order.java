@@ -25,6 +25,7 @@ public class Order {
     @OneToOne
     private Basket basket;
 
+    @Enumerated(EnumType.STRING)
     private Status status;
 
     private String address;
@@ -33,16 +34,8 @@ public class Order {
         return user;
     }
 
-    public void setUser(User user) {
-        this.user = user;
-    }
-
     public Basket getBasket() {
         return basket;
-    }
-
-    public void setBasket(Basket basket) {
-        this.basket = basket;
     }
 
     public Status getStatus() {
@@ -55,10 +48,6 @@ public class Order {
 
     public String getAddress() {
         return address;
-    }
-
-    public void setAddress(String address) {
-        this.address = address;
     }
 
     public Order(User user, String address) {
