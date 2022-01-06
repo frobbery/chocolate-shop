@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="https://www.thymeleaf.org"
+      lang="java">
+<head>
+    <title>Admin status update</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <style>
+        body {
+            font-family: Helvetica, Tahoma, Arial, sans-serif;
+            font-size: 100%;
+            margin: 1em;
+        }
+        img {
+            max-width: 100%;
+        }
+    </style>
+</head>
+<body>
+<h1>Admin status update</h1>
+<p th:if="${message!=null}" class="error" th:text="${message}"></p>
+<form th:action="@{/admin/status-update}" id="admin-status-update" name="admin-status-update" method="post">
+    <label for="id"> Order id:  </label>
+    <input type="tel" id="id" name="id">
+    <br>
+    <div>
+        <input type="radio" id="statusChoice1"
+               name="statusSelected" value="paid">
+        <label for="statusChoice1">Paid</label>
+
+        <input type="radio" id="statusChoice2"
+               name="statusSelected" value="sent">
+        <label for="statusChoice2">Sent</label>
+    </div>
+    <div>
+        <button type="submit">Update</button>
+    </div>
+</form>
+<form th:action="@{/admin}" id="admin" name="admin" method="get">
+    <button type="submit">Go back</button>
+</form>
+</body>
+</html>

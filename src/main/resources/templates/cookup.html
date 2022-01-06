@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="https://www.thymeleaf.org"
       lang="java">
 <head>
-    <title>Registration</title>
+    <title>Worker cooking update</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
     <style>
@@ -17,21 +17,19 @@
     </style>
 </head>
 <body>
-<h1>Registration</h1>
+<h1>Admin status update</h1>
 <p th:if="${message!=null}" class="error" th:text="${message}"></p>
-<form th:action="@{/register}" id="register-form" name="register-form" method="post">
-    <label for="email"> Email:  </label>
-    <input type="text" id="email" name="email">
+<form th:action="@{/worker/cooking-update}" id="worker-cooking-update" name="worker-cooking-update" method="post">
+    <label for="taste"> Taste:  </label>
+    <input type="text" id="taste" name="taste">
     <br>
-    <label for="password">Password:</label>
-    <input type="password" id="password" name="password">
-    <br>
-    <label for="phone">Phone number:</label>
-    <input type="text" id="phone" name="phone">
-    <br>
-    <button type="submit">Sign up</button>
+    <label for="quantity"> Quantity:  </label>
+    <input type="number" id="quantity" name="quantity">
+    <div>
+        <button type="submit">Submit</button>
+    </div>
 </form>
-<form th:action="@{/authorize}" id="authorize-form" name="authorize-form" method="get">
+<form th:action="@{/worker}" id="worker" name="worker" method="get">
     <button type="submit">Go back</button>
 </form>
 </body>

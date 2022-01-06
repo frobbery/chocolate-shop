@@ -21,21 +21,15 @@ public class OrderService {
         this.basketService = basketService;
     }
 
-    public String createOrder(User user, String address) {
-        if (user.getBasket() == null) {
-            return "Корзина пуста";
-        }
-        else {
-            orderRepository.save(new Order(user, address));
-            return null;
-        }
+    public void createOrder(User user, String address) {
+        orderRepository.save(new Order(user, address));
     }
 
     public Map<Long,String> getOrdersOfUser(User user) {
         List<Order> ordersOfUser = orderRepository.getByUser(user);
         Map<Long,String> orders = new HashMap<>();
         for (Order order : ordersOfUser) {
-            orders.put(order.getId(), order.getStatus().getTitle());
+            orders.put(order.getId(), order.getStatus().toString());
         }
         return orders;
     }
@@ -53,12 +47,12 @@ public class OrderService {
     public String updateOrderStatusToGathered(Long id) {
         Optional<Order> orderOptional = orderRepository.findById(id);
         if (orderOptional.isEmpty()) {
-            return "Заказа с таким id не существует";
+            return "There is no order with such id";
         }
         else {
             Order order = orderOptional.get();
             if (!order.getStatus().equals(Status.PAID)) {
-                return "Заказ еще не оплачен или уже собран";
+                return "Order is either hasn't been paid or is already gathered";
             }
             else {
                 order.setStatus(Status.GATHERED);
@@ -67,7 +61,7 @@ public class OrderService {
         }
     }
 
-    public Map<Long,Long> getRegisteredOrdersBasket() {
+    public Map<Long,Long> getRegisteredOrdersWithPhone() {
         Map<Long,Long> ordersBasket = new HashMap<>();
         List<Order> paidOrders = orderRepository.findByStatusIs(Status.REGISTERED);
         for (Order order : paidOrders) {
@@ -79,12 +73,12 @@ public class OrderService {
     public String updateOrderStatusToPaid(Long id) {
         Optional<Order> orderOptional = orderRepository.findById(id);
         if (orderOptional.isEmpty()) {
-            return "Заказа с таким id не существует";
+            return "There is no order with such id";
         }
         else {
             Order order = orderOptional.get();
             if (!order.getStatus().equals(Status.REGISTERED)) {
-                return "Заказ уже оплачен";
+                return "Order is already paid";
             }
             else {
                 order.setStatus(Status.PAID);
@@ -93,7 +87,7 @@ public class OrderService {
         }
     }
 
-    public Map<Long, String> getGatheredOrdersBasket() {
+    public Map<Long, String> getGatheredOrdersWithAddress() {
         Map<Long,String> ordersBasket = new HashMap<>();
         List<Order> paidOrders = orderRepository.findByStatusIs(Status.GATHERED);
         for (Order order : paidOrders) {
@@ -105,12 +99,12 @@ public class OrderService {
     public String updateOrderStatusToSent(Long id) {
         Optional<Order> orderOptional = orderRepository.findById(id);
         if (orderOptional.isEmpty()) {
-            return "Заказа с таким id не существует";
+            return "There is no order with such id";
         }
         else {
             Order order = orderOptional.get();
             if (!order.getStatus().equals(Status.GATHERED)) {
-                return "Заказ еще не собран или уже отправлен";
+                return "Order is either hasn't been gathered or is already sent";
             }
             else {
                 order.setStatus(Status.SENT);

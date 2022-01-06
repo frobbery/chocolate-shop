@@ -46,4 +46,32 @@ public class GuestController {
             }
         }
     }
+
+    @GetMapping("/register")
+    public String getRegister() {
+        return "reg";
+    }
+
+    @PostMapping("/register")
+    public String postRegister(String email, String password, String phone, Model model) {
+        System.out.println(email);
+        System.out.println(password);
+        System.out.println(phone);
+        try {
+            Long.valueOf(phone);
+        }
+        catch (NumberFormatException e) {
+            model.addAttribute("message", "The phone number is in an invalid format");
+            return "reg";
+        }
+        String result = userService.register(email, password, Long.valueOf(phone));
+        if (result != null) {
+            model.addAttribute("message", result);
+            return "reg";
+        }
+        else {
+            model.addAttribute("message", "The registration went successfully.");
+            return "auth";
+        }
+    }
 }

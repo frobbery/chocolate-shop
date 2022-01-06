@@ -23,7 +23,7 @@ public class CookingService {
     public String addCookingOrder(String taste, Integer quantity) {
         Chocolate chocolate = chocolateRepository.findByName(taste);
         if (chocolate == null) {
-            return "Такого вкуса не существует";
+            return "There is no taste with such name";
         }
         else {
             cookingRepository.save(new Cooking(chocolate, quantity));
@@ -34,7 +34,7 @@ public class CookingService {
     public String updateCookingAndChocolate(Long id, Integer quantity) {
         Optional<Cooking> cookingOptional = cookingRepository.findById(id);
         if (cookingOptional.isEmpty()) {
-            return "Запроса с таким id не существует";
+            return "There is no request with such id";
         }
         else {
             Cooking cooking = cookingOptional.get();

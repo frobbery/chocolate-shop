@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="https://www.thymeleaf.org"
       lang="java">
 <head>
-    <title>Registration</title>
+    <title>Admin main page</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
     <style>
@@ -17,22 +17,19 @@
     </style>
 </head>
 <body>
-<h1>Registration</h1>
+<h1>Admin main page</h1>
 <p th:if="${message!=null}" class="error" th:text="${message}"></p>
-<form th:action="@{/register}" id="register-form" name="register-form" method="post">
-    <label for="email"> Email:  </label>
-    <input type="text" id="email" name="email">
-    <br>
-    <label for="password">Password:</label>
-    <input type="password" id="password" name="password">
-    <br>
-    <label for="phone">Phone number:</label>
-    <input type="text" id="phone" name="phone">
-    <br>
-    <button type="submit">Sign up</button>
+<form th:action="@{/admin/registered-orders}" id="registered-orders" name="registered-orders" method="get">
+    <button type="submit">Registered orders</button>
+</form>
+<form th:action="@{/admin/gathered-orders}" id="gathered-orders" name="gathered-orders" method="get">
+    <button type="submit">Gathered orders</button>
+</form>
+<form th:action="@{/admin/status-update}" id="status-update" name="status-update" method="get">
+    <button type="submit">Update status</button>
 </form>
 <form th:action="@{/authorize}" id="authorize-form" name="authorize-form" method="get">
-    <button type="submit">Go back</button>
+    <button type="submit">Log out</button>
 </form>
 </body>
 </html>

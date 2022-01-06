@@ -66,7 +66,7 @@ public class UserService {
 
     public String setBasketFromTest(User user, boolean result) {
         if (user.getBasket() != null) {
-            return "Корзина не пуста";
+            return "Basket is not empty";
         }
         else {
             user.setBasket(basketService.createBasketFromTest(result));
@@ -76,12 +76,12 @@ public class UserService {
 
     public String setBasketFromHand(User user, List<String> chocolatesNames) {
         if (user.getBasket() != null) {
-            return "Корзина не пуста";
+            return "Basket is not empty";
         }
         else {
             Basket basket = basketService.createBasketByHand(chocolatesNames);
             if (basket == null) {
-                return "Выбрано не четыре вкуса";
+                return "Select four tastes";
             }
             else {
                 user.setBasket(basket);
@@ -107,7 +107,7 @@ public class UserService {
     public String cleanBasket(User user) {
         Basket basket = user.getBasket();
         if (basket == null) {
-            return "Корзина пуста";
+            return "Basket is empty";
         }
         else {
             user.setBasket(null);
@@ -118,7 +118,7 @@ public class UserService {
 
     public String placeOrder(User user, String address) {
         if (user.getBasket() == null) {
-            return "Корзина пуста";
+            return "Basket is empty";
         }
         else {
             orderService.createOrder(user, address);

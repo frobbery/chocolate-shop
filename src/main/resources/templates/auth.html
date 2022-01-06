@@ -19,7 +19,7 @@
 <body>
 <h1>Authorization</h1>
 <p th:if="${message!=null}" class="error" th:text="${message}"></p>
-<form action="/authorize" method="post">
+<form th:action="@{/authorize}" id="authorize-form" name="authorize-form" method="post">
     <label for="phoneNumber"> Phone number:  </label>
     <input type="tel" id="phoneNumber" name="phoneNumber">
     <br>
@@ -28,7 +28,7 @@
     <br>
     <button type="submit">Login</button>
 </form>
-<form action="/register" method="get">
+<form th:action="@{/register}" id="register-form" name="register-form" method="get">
     New?
     <button type="submit">Sign up</button>
 </form>
