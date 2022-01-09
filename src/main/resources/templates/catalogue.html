@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="https://www.thymeleaf.org"
+      lang="java">
+<head>
+    <title>Worker main page</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <style>
+        body {
+            font-family: Helvetica, Tahoma, Arial, sans-serif;
+            font-size: 100%;
+            margin: 1em;
+        }
+        img {
+            max-width: 100%;
+        }
+    </style>
+</head>
+<body>
+<h1>Catalogue</h1>
+<p th:if="${message!=null}" class="error" th:text="${message}"></p>
+<form th:action="@{/cabinet}" id="cabinet" name="cabinet" method="get">
+    <input type="hidden" name="user_id" th:value="${user_id}">
+    <button type="submit">Personal cabinet</button>
+</form>
+<form th:action="@{/basket}" id="basket" name="basket" method="get">
+    <input type="hidden" name="user_id" th:value="${user_id}">
+    <button type="submit">Basket</button>
+</form>
+<form th:action="@{/test}" id="test" name="test" method="get">
+    <input type="hidden" name="user_id" th:value="${user_id}">
+    <button type="submit">Get basket through test</button>
+</form>
+<form th:action="@{/catalogue}" id="catalogue" name="catalogue" method="post">
+    <input type="hidden" name="user_id" th:value="${user_id}">
+    <ul>
+        <li th:each="chocolate : ${chocolateNames}">
+            <input type="checkbox" th:id="${chocolate}" th:value="${chocolate}" />
+            <label th:for="${chocolate}"
+                   th:text="${chocolate}"></label>
+        </li>
+    </ul>
+    <button type="submit">Get basket by picking</button>
+</form>
+<form th:action="@{/checkout}" id="checkout" name="checkout" method="get">
+    <input type="hidden" name="user_id" th:value="${user_id}">
+    <button type="submit">Checkout</button>
+</form>
+<form th:action="@{/authorize}" id="authorize-form" name="authorize-form" method="get">
+    <button type="submit">Log out</button>
+</form>
+</body>
+</html>

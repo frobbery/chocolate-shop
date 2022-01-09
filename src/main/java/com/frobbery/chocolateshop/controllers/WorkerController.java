@@ -8,6 +8,8 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 
+import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 import java.util.Map;
 
@@ -44,8 +46,19 @@ public class WorkerController {
     }
 
     @PostMapping("/worker/warehouse-update")
-    public String postWarehouseUpdate() {
-        return "worker";
+    public String postWarehouseUpdate(String chocolatesNamesInOneString,Model model) {
+        String[] words = chocolatesNamesInOneString.split(",");
+        List<String> chocolatesNames = new ArrayList<>();
+        Collections.addAll(chocolatesNames, words);
+        String result = chocolateService.getIntoBox(chocolatesNames);
+        if (result != null) {
+            model.addAttribute("message", result);
+            return "warup";
+        }
+        else {
+            model.addAttribute("message", "Update went successfully");
+            return "worker";
+        }
     }
 
     @GetMapping("worker/cooking-update")
@@ -68,11 +81,26 @@ public class WorkerController {
 
     @GetMapping("worker/status-update")
     public String getStatusWorkerUpdate() {
-        return "warstatup";
+        return "worstatup";
     }
 
     @PostMapping("worker/status-update")
-    public String postStatusWorkerUpdate() {
-        return "worker";
+    public String postStatusWorkerUpdate(String id, Model model) {
+        try {
+            Long.valueOf(id);
+        }
+        catch (NumberFormatException e) {
+            model.addAttribute("message", "The id is in an invalid format");
+            return "worstatup";
+        }
+        String result = orderService.updateOrderStatusToGathered(Long.valueOf(id));
+        if (result != null) {
+            model.addAttribute("message", result);
+            return "worstatup";
+        }
+        else {
+            model.addAttribute("message", "Update went successfully");
+            return "worker";
+        }
     }
 }

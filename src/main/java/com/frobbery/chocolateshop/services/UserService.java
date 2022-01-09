@@ -58,7 +58,7 @@ public class UserService {
                     return "WorkerRole";
                 }
                 else {
-                    return "UserRole";
+                    return user.getId().toString() + "Role";
                 }
             }
         }

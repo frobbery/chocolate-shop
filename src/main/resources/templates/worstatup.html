@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="https://www.thymeleaf.org"
       lang="java">
 <head>
-    <title>Registered orders</title>
+    <title>Worker status update</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
     <style>
@@ -17,14 +17,17 @@
     </style>
 </head>
 <body>
-<h1>Registered orders</h1>
-<table>
-    <tr th:each="instance : ${registeredOrders}">
-        <td th:text="${instance.key}"></td>
-        <td th:text="${instance.value}"></td>
-    </tr>
-</table>
-<form th:action="@{/admin}" id="admin" name="admin" method="get">
+<h1>Worker status update</h1>
+<p th:if="${message!=null}" class="error" th:text="${message}"></p>
+<form th:action="@{/worker/status-update}" id="worker-status-update" name="worker-status-update" method="post">
+    <label for="id"> Order id:  </label>
+    <input type="text" id="id" name="id">
+    <br>
+    <div>
+        <button type="submit">Update</button>
+    </div>
+</form>
+<form th:action="@{/worker}" id="worker" name="worker" method="get">
     <button type="submit">Go back</button>
 </form>
 </body>
