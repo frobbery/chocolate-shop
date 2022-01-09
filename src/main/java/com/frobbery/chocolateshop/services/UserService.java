@@ -64,17 +64,22 @@ public class UserService {
         }
     }
 
-    public String setBasketFromTest(User user, boolean result) {
+    public String setBasketFromTest(Long id, boolean result) {
+        User user = getUserFromOptional(userRepository.findById(id));
+        assert user != null;
         if (user.getBasket() != null) {
             return "Basket is not empty";
         }
         else {
             user.setBasket(basketService.createBasketFromTest(result));
+            userRepository.save(user);
             return null;
         }
     }
 
-    public String setBasketFromHand(User user, List<String> chocolatesNames) {
+    public String setBasketFromHand(Long id, List<String> chocolatesNames) {
+        User user = getUserFromOptional(userRepository.findById(id));
+        assert user != null;
         if (user.getBasket() != null) {
             return "Basket is not empty";
         }
@@ -85,13 +90,16 @@ public class UserService {
             }
             else {
                 user.setBasket(basket);
+                userRepository.save(user);
                 return null;
             }
         }
     }
 
-    public List<String> basket(User user) {
+    public List<String> getBasketOfUser(Long id) {
         List<String> chocolatesNames = new ArrayList<>();
+        User user = getUserFromOptional(userRepository.findById(id));
+        assert user != null;
         Basket basket = user.getBasket();
         if (basket == null) {
             for (int i = 0; i < 4; i++) {
@@ -104,10 +112,12 @@ public class UserService {
         return chocolatesNames;
     }
 
-    public String cleanBasket(User user) {
+    public String cleanBasket(Long id) {
+        User user = getUserFromOptional(userRepository.findById(id));
+        assert user != null;
         Basket basket = user.getBasket();
         if (basket == null) {
-            return "Basket is empty";
+            return "Basket is already empty";
         }
         else {
             user.setBasket(null);
@@ -116,7 +126,9 @@ public class UserService {
         }
     }
 
-    public String placeOrder(User user, String address) {
+    public String placeOrder(Long id, String address) {
+        User user = getUserFromOptional(userRepository.findById(id));
+        assert user != null;
         if (user.getBasket() == null) {
             return "Basket is empty";
         }
@@ -124,6 +136,15 @@ public class UserService {
             orderService.createOrder(user, address);
             user.setBasket(null);
             return null;
+        }
+    }
+
+    private User getUserFromOptional(Optional<User> user) {
+        if (user.isEmpty()) {
+            return null;
+        }
+        else {
+            return user.get();
         }
     }
 }

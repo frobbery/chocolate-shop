@@ -6,9 +6,7 @@ import com.frobbery.chocolateshop.repositories.ChocolateRepository;
 import com.frobbery.chocolateshop.repositories.CookingRepository;
 import org.springframework.stereotype.Service;
 
-import java.util.HashMap;
-import java.util.Map;
-import java.util.Optional;
+import java.util.*;
 
 @Service
 public class CookingService {
@@ -41,14 +39,18 @@ public class CookingService {
             Chocolate chocolate = cooking.getChocolate();
             cookingRepository.delete(cooking);
             chocolate.setQuantity(chocolate.getQuantity() + quantity);
+            chocolateRepository.save(chocolate);
             return null;
         }
     }
 
-    public Map<String,Integer> getAllCookingOrders() {
-        Map<String,Integer> cookingOrders = new HashMap<>();
+    public Map<List<String>,Integer> getAllCookingOrders() {
+        Map<List<String>,Integer> cookingOrders = new HashMap<>();
         for (Cooking cooking : cookingRepository.findAll()) {
-            cookingOrders.put(cooking.getChocolate().getName(), cooking.getQuantity());
+            List<String> idAndName = new ArrayList<>();
+            idAndName.add(cooking.getId().toString());
+            idAndName.add(cooking.getChocolate().getName());
+            cookingOrders.put(idAndName, cooking.getQuantity());
         }
         return cookingOrders;
     }

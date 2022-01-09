@@ -42,7 +42,7 @@ public class WorkerController {
     @GetMapping("/worker/warehouse-update")
     public String getWarehouseUpdate(Model model) {
         model.addAttribute("chocolatesNames", chocolateService.getAllChocolatesNames());
-        return "warup";
+        return "warehouse-update";
     }
 
     @PostMapping("/worker/warehouse-update")
@@ -52,8 +52,9 @@ public class WorkerController {
         Collections.addAll(chocolatesNames, words);
         String result = chocolateService.getIntoBox(chocolatesNames);
         if (result != null) {
+            model.addAttribute("chocolatesNames", chocolateService.getAllChocolatesNames());
             model.addAttribute("message", result);
-            return "warup";
+            return "warehouse-update";
         }
         else {
             model.addAttribute("message", "Update went successfully");
@@ -63,7 +64,7 @@ public class WorkerController {
 
     @GetMapping("worker/cooking-update")
     public String getCookingUpdate() {
-        return "cookup";
+        return "cooking-update";
     }
 
     @PostMapping("worker/cooking-update")
@@ -71,7 +72,7 @@ public class WorkerController {
         String result = cookingService.addCookingOrder(taste, Integer.valueOf(quantity));
         if (result != null) {
             model.addAttribute("message", result);
-            return "cookup";
+            return "cooking-update";
         }
         else {
             model.addAttribute("message", "Update went successfully");
@@ -81,7 +82,7 @@ public class WorkerController {
 
     @GetMapping("worker/status-update")
     public String getStatusWorkerUpdate() {
-        return "worstatup";
+        return "worker-status-update";
     }
 
     @PostMapping("worker/status-update")
@@ -91,12 +92,12 @@ public class WorkerController {
         }
         catch (NumberFormatException e) {
             model.addAttribute("message", "The id is in an invalid format");
-            return "worstatup";
+            return "worker-status-update";
         }
         String result = orderService.updateOrderStatusToGathered(Long.valueOf(id));
         if (result != null) {
             model.addAttribute("message", result);
-            return "worstatup";
+            return "worker-status-update";
         }
         else {
             model.addAttribute("message", "Update went successfully");

@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="https://www.thymeleaf.org"
+      lang="java">
+<head>
+    <title>Worker main page</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <style>
+        body {
+            font-family: Helvetica, Tahoma, Arial, sans-serif;
+            font-size: 100%;
+            margin: 1em;
+        }
+        img {
+            max-width: 100%;
+        }
+    </style>
+</head>
+<body>
+<h1>Worker main page</h1>
+<p th:if="${message!=null}" class="error" th:text="${message}"></p>
+<form th:action="@{/worker/warehouse}" id="warehouse" name="warehouse" method="get">
+    <button type="submit">Warehouse</button>
+</form>
+<form th:action="@{/worker/cooking-update}" id="cooking-update" name="cooking-update" method="get">
+    <button type="submit">Cooking update</button>
+</form>
+<form th:action="@{/worker/warehouse-update}" id="warehouse-update" name="warehouse-update" method="get">
+    <button type="submit">Warehouse update</button>
+</form>
+<form th:action="@{worker/status-update}" id="status-update" name="status-update" method="get">
+    <button type="submit">Status update</button>
+</form>
+<table>
+    <tr th:each="instance : ${paidOrdersBasket}">
+        <td th:text="${instance.key}"></td>
+        <td>
+            <table>
+                <tr th:each="basket : ${instance.value}">
+                    <td th:text="${basket}"></td>
+                </tr>
+            </table>
+        </td>
+    </tr>
+</table>
+<form th:action="@{/authorize}" id="authorize-form" name="authorize-form" method="get">
+    <button type="submit">Log out</button>
+</form>
+</body>
+</html>

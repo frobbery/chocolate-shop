@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="https://www.thymeleaf.org"
       lang="java">
 <head>
-    <title>Worker main page</title>
+    <title>Catalogue</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
     <style>
@@ -35,7 +35,7 @@
     <input type="hidden" name="user_id" th:value="${user_id}">
     <ul>
         <li th:each="chocolate : ${chocolateNames}">
-            <input type="checkbox" th:id="${chocolate}" th:value="${chocolate}" />
+            <input type="checkbox" th:id="${chocolate}" th:name="selectedChocolates" th:value="${chocolate}" />
             <label th:for="${chocolate}"
                    th:text="${chocolate}"></label>
         </li>

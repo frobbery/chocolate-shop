@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="https://www.thymeleaf.org"
+      lang="java">
+<head>
+    <title>Warehouse update</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <style>
+        body {
+            font-family: Helvetica, Tahoma, Arial, sans-serif;
+            font-size: 100%;
+            margin: 1em;
+        }
+        img {
+            max-width: 100%;
+        }
+    </style>
+</head>
+<body>
+<h1>Warehouse update</h1>
+<p th:if="${message!=null}" class="error" th:text="${message}"></p>
+<form th:action="@{/worker/warehouse-update}" id="warehouse-update" name="warehouse-update" method="post">
+    <ul>
+        <li th:each="chocolate : ${chocolatesNames}">
+            <input type="checkbox" th:id="${chocolate}" th:name="chocolatesNamesInOneString" th:value="${chocolate}" />
+            <label th:for="${chocolate}"
+                   th:text="${chocolate}"></label>
+        </li>
+    </ul>
+    <button type="submit">Update warehouse</button>
+</form>
+<form th:action="@{/worker}" id="worker" name="worker" method="get">
+    <button type="submit">Go back</button>
+</form>
+</body>
+</html>

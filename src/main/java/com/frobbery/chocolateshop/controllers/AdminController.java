@@ -39,7 +39,7 @@ public class AdminController {
 
     @GetMapping("/admin/status-update")
     public String getAdminStatusUpdate() {
-        return "admstatup";
+        return "admin-status-update";
     }
 
 
@@ -50,7 +50,7 @@ public class AdminController {
         }
         catch (NumberFormatException e) {
             model.addAttribute("message", "The id is in an invalid format");
-            return "admstatup";
+            return "admin-status-update";
         }
         Status status = Status.valueOf(statusSelected.toUpperCase(Locale.ROOT));
         String result;
@@ -62,7 +62,7 @@ public class AdminController {
         }
         if (result != null) {
             model.addAttribute("message", result);
-            return "admstatup";
+            return "admin-status-update";
         }
         else {
             model.addAttribute("message", "Update went successfully");

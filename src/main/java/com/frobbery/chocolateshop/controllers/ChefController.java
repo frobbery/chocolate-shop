@@ -6,6 +6,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 
+import java.util.List;
 import java.util.Map;
 
 @Controller
@@ -18,14 +19,14 @@ public class ChefController {
 
     @GetMapping("/chef")
     public String getChef(Model model) {
-        Map<String,Integer> cookingOrders = cookingService.getAllCookingOrders();
-        model.addAttribute("cooking orders", cookingOrders);
+        Map<List<String>,Integer> cookingOrders = cookingService.getAllCookingOrders();
+        model.addAttribute("cooking_orders", cookingOrders);
         return "chef";
     }
 
     @GetMapping("/chef/taste-update")
     public String getTasteUpdate() {
-        return "tasteup";
+        return "taste-update";
     }
 
     @PostMapping("chef/taste-update")
@@ -35,12 +36,12 @@ public class ChefController {
         }
         catch (NumberFormatException e) {
             model.addAttribute("message", "The id is in an invalid format");
-            return "tasteup";
+            return "taste-update";
         }
         String result = cookingService.updateCookingAndChocolate(Long.valueOf(cookingId), quantity);
         if (result != null) {
             model.addAttribute("message", result);
-            return "tasteup";
+            return "taste-update";
         }
         else {
             model.addAttribute("message", "Update went successfully");

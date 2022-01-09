@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="https://www.thymeleaf.org"
       lang="java">
 <head>
-    <title>Test</title>
+    <title>Checkout</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
     <style>
@@ -17,23 +17,18 @@
     </style>
 </head>
 <body>
-<h1>Test</h1>
-<form th:action="@{/test}" id="test" name="test" method="post">
+<h1>Checkout</h1>
+<form th:action="@{/checkout}" id="checkout" name="checkout" method="post">
     <input type="hidden" name="user_id" th:value="${user_id}">
+    <label for="address"> Address:  </label>
+    <input type="text" id="address" name="address">
+    <br>
     <div>
-        <input type="radio" id="testChoice1"
-               name="testSelect" value="dark">
-        <label for="testChoice1">I love dark chocolate</label>
-
-        <input type="radio" id="testChoice2"
-               name="testSelect" value="milk">
-        <label for="testChoice2">I love milk chocolate</label>
-    </div>
-    <div>
-        <button type="submit">Submit</button>
+        <button type="submit">Place order</button>
     </div>
 </form>
 <form th:action="@{/catalogue}" id="catalogue" name="catalogue" method="get">
+    <input type="hidden" name="user_id" th:value="${user_id}">
     <button type="submit">Go back</button>
 </form>
 </body>

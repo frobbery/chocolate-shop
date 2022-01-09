@@ -57,16 +57,6 @@ public class ChocolateService {
         }
     }
 
-    public List<String> catalogue() {
-        List<Chocolate> catalogue = chocolateRepository.findAll();
-        List<String> names = new ArrayList<>();
-
-        for (Chocolate chocolate : catalogue) {
-            names.add(chocolate.getName());
-        }
-        return names;
-    }
-
     public Map<String,Integer> getChocolateWithQuantity() {
         Map<String,Integer> chocolates = new HashMap<>();
         for (Chocolate chocolate : chocolateRepository.findAll()) {
@@ -98,6 +88,7 @@ public class ChocolateService {
             for (String chocolateName : chocolatesNames) {
                 Chocolate chocolate = chocolateRepository.findByName(chocolateName);
                 chocolate.setQuantity(chocolate.getQuantity() - 1);
+                chocolateRepository.save(chocolate);
             }
             return null;
         }

@@ -25,8 +25,8 @@ public class OrderService {
         orderRepository.save(new Order(user, address));
     }
 
-    public Map<Long,String> getOrdersOfUser(User user) {
-        List<Order> ordersOfUser = orderRepository.getByUser(user);
+    public Map<Long,String> getOrdersOfUser(Long id) {
+        List<Order> ordersOfUser = orderRepository.findByUserId(id);
         Map<Long,String> orders = new HashMap<>();
         for (Order order : ordersOfUser) {
             orders.put(order.getId(), order.getStatus().toString());
@@ -56,6 +56,7 @@ public class OrderService {
             }
             else {
                 order.setStatus(Status.GATHERED);
+                orderRepository.save(order);
                 return null;
             }
         }
@@ -82,6 +83,7 @@ public class OrderService {
             }
             else {
                 order.setStatus(Status.PAID);
+                orderRepository.save(order);
                 return null;
             }
         }
@@ -108,6 +110,7 @@ public class OrderService {
             }
             else {
                 order.setStatus(Status.SENT);
+                orderRepository.save(order);
                 return null;
             }
         }

@@ -3,6 +3,7 @@ package com.frobbery.chocolateshop.entities;
 import javax.persistence.*;
 
 @Entity
+@Table(name = "order_table")
 public class Order {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)

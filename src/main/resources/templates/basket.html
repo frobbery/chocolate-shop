@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="https://www.thymeleaf.org"
       lang="java">
 <head>
-    <title>Chef main page</title>
+    <title>Basket</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
     <style>
@@ -17,20 +17,20 @@
     </style>
 </head>
 <body>
-<h1>Chef main page</h1>
+<h1>Basket</h1>
 <p th:if="${message!=null}" class="error" th:text="${message}"></p>
 <table>
-    <tr th:each="instance : ${cooking_orders}">
-        <td th:text="${instance.key.get(0)}"></td>
-        <td th:text="${instance.key.get(1)}"></td>
-        <td th:text="${instance.value}"></td>
+    <tr th:each="taste : ${basket}">
+        <td th:text="${taste}"></td>
     </tr>
 </table>
-<form th:action="@{/chef/taste-update}" id="taste-update" name="taste-update" method="get">
-    <button type="submit">Update taste</button>
+<form th:action="@{/basket}" id="basket" name="basket" method="post">
+    <input type="hidden" name="user_id" th:value="${user_id}">
+    <button type="submit">Clean basket</button>
 </form>
-<form th:action="@{/authorize}" id="authorize-form" name="authorize-form" method="get">
-    <button type="submit">Log out</button>
+<form th:action="@{/catalogue}" id="catalogue" name="catalogue" method="get">
+    <input type="hidden" name="user_id" th:value="${user_id}">
+    <button type="submit">Go back</button>
 </form>
 </body>
 </html>

@@ -54,8 +54,8 @@ public class GuestController {
                     model.addAttribute("paidOrdersBasket", paidOrdersBasket);
                     return "worker";
                 case "ChefRole":
-                    Map<String,Integer> cookingOrders = cookingService.getAllCookingOrders();
-                    model.addAttribute("cooking orders", cookingOrders);
+                    Map<List<String>,Integer> cookingOrders = cookingService.getAllCookingOrders();
+                    model.addAttribute("cooking_orders", cookingOrders);
                     return "chef";
                 default:
                     List<String> chocolateNames = chocolateService.getAllChocolatesNames();
